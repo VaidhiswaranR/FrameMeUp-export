@@ -534,6 +534,14 @@ export abstract class MapGeneratorBase {
 		this.hideLoader();
 	}
 
+	private handleExportedFile(fileBlob: Blob, fileName: string) {
+	  if (this.onExported) {
+	    this.onExported(fileBlob, fileName);
+	  } else {
+	    this.saveFile(fileBlob, fileName); // default behaviour: download
+	  }
+	}
+
 	/**
 	 * Convert canvas to PNG
 	 * @param canvas Canvas element

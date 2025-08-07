@@ -594,7 +594,7 @@ export abstract class MapGeneratorBase {
 			author: '(c)Mapbox, (c)OpenStreetMap'
 		});
 
-		pdf.save(fileName);
+		return pdf.output('datauristring'); 
 	}
 
 	/**

@@ -511,8 +511,8 @@ export abstract class MapGeneratorBase {
 			case Format.JPEG:
 				this.toJPEG(canvas, fileName);
 				break;
-			case Format.PDF:
-				this.toPDF(renderMap, fileName);
+			const pdfBase64 = this.toPDF(renderMap);
+				this.handleExportedFile(pdfBase64, Format.PDF); // 🔄 Send to your handler
 				break;
 			case Format.SVG:
 				this.toSVG(canvas, fileName);
